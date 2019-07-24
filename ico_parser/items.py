@@ -32,7 +32,7 @@ class IcoParserItemLoader(ItemLoader):
     ratings_out = TakeFirst()
     about_section_in = Join('')
     about_section_out = TakeFirst()
-    team_out = Identity()
+    team_out = TakeFirst()
 
 class Person(scrapy.Item):
     profile = scrapy.Field()
@@ -44,4 +44,4 @@ class PersonLoader(ItemLoader):
     profile_out = TakeFirst()
     name_out = TakeFirst()
     job_out = TakeFirst()
-    socials_out = TakeFirst()
+    socials_out = Identity()
