@@ -72,8 +72,13 @@ CLOSESPIDER_PAGECOUNT = 10
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'ico_parser.pipelines.IcoParserPipeline': 300,
+    'scrapy.pipelines.files.FilesPipeline': 400,
+    'ico_parser.pipelines.IcoParserPipeline': 300,
 }
+
+FILES_STORE = 'whitepapers'
+FILES_URLS_FIELD = 'whitepaper'
+FILES_RESULT_FIELD = 'stored_whitepaper'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

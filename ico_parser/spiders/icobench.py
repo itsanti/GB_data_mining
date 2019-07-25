@@ -50,6 +50,8 @@ class IcobenchSpider(scrapy.Spider):
             return team
 
         l.add_value('team', parse_team())
+        #l.add_value('whitepaper', selector.css('div#whitepaper object::attr(data)').extract_first() or "None")
+        l.add_css('whitepaper', 'div#whitepaper object::attr(data)')
 
         yield l.load_item()
 

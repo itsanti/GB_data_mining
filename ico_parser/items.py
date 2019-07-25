@@ -20,6 +20,8 @@ class IcoParserItem(scrapy.Item):
     ratings = scrapy.Field()
     about_section = scrapy.Field()
     team = scrapy.Field()
+    whitepaper = scrapy.Field()
+    stored_whitepaper = scrapy.Field()
 
 
 class IcoParserItemLoader(ItemLoader):
@@ -33,12 +35,15 @@ class IcoParserItemLoader(ItemLoader):
     about_section_in = Join('')
     about_section_out = TakeFirst()
     team_out = TakeFirst()
+    whitepaper_out = Identity()
+
 
 class Person(scrapy.Item):
     profile = scrapy.Field()
     name = scrapy.Field()
     job = scrapy.Field()
     socials = scrapy.Field()
+
 
 class PersonLoader(ItemLoader):
     profile_out = TakeFirst()
