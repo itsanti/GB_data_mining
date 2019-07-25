@@ -29,5 +29,16 @@ class IcoParserPipeline(object):
         self.client.close()
 
     def process_item(self, item, spider):
+        team = item.get('team')
+        for key, persons in team.items():
+            ids = []
+            for person in persons:
+                result = self.db['team'].find_one({'profile': person.get('profile')})
+                if result is not None:
+                    ids.append(result.get('_id'))
+                else:
+                    result = self.db['team'].insert_one(dict(person))
+                    ids.append(result.inserted_id)
+            team[key] = ids
         self.db[self.collection_name].insert_one(dict(item))
         return item
