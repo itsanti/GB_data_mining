@@ -72,7 +72,7 @@ CLOSESPIDER_PAGECOUNT = 10
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'scrapy.pipelines.files.FilesPipeline': 400,
+    #'scrapy.pipelines.files.FilesPipeline': 400,
     'ico_parser.pipelines.IcoParserPipeline': 300,
 }
 

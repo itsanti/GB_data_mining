@@ -22,7 +22,8 @@ class IcoParserItem(scrapy.Item):
     team = scrapy.Field()
     whitepaper = scrapy.Field()
     stored_whitepaper = scrapy.Field()
-
+    iso_times = scrapy.Field()
+    financial_data = scrapy.Field()
 
 class IcoParserItemLoader(ItemLoader):
     name_out = TakeFirst()
@@ -36,7 +37,8 @@ class IcoParserItemLoader(ItemLoader):
     about_section_out = TakeFirst()
     team_out = TakeFirst()
     whitepaper_out = Identity()
-
+    iso_times_out = TakeFirst()
+    financial_data_out = TakeFirst()
 
 class Person(scrapy.Item):
     profile = scrapy.Field()
