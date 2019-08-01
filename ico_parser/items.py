@@ -10,6 +10,15 @@ from scrapy.loader import ItemLoader
 from scrapy.loader.processors import Identity, Join, TakeFirst
 
 
+class IcoRatingItem(scrapy.Item):
+    name = scrapy.Field()
+    description = scrapy.Field()
+    socials = scrapy.Field()
+    ratings = scrapy.Field()
+    team = scrapy.Field()
+    iso_times = scrapy.Field()
+
+
 class IcoParserItem(scrapy.Item):
     name = scrapy.Field()
     slogan = scrapy.Field()
